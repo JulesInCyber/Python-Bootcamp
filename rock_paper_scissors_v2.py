@@ -18,6 +18,7 @@ Instead of checking *all* possibilites we only check where Player 1 wins.
 If Player 1 does not win, it's either a draw or a win for player 2.
 This makes the code more efficient.
 '''
+
 if player_1 == player_2:
     print("It's a draw!")
 elif player_1 == "rock" and player_2 == "scissors":
