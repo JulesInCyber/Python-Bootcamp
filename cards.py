@@ -12,8 +12,11 @@ class Card:
         return f"{self.values} of {self.suits}"
     
     @classmethod
-    def deal(cls,) -> "Card":
+    def deal(cls) -> "Card":
         return cls(random.choice(cls.values), random.choice(cls.suits))
+    
+    def get_value(self):
+        pass
     
 class Deck:
     def __init__(self) -> None:
@@ -32,3 +35,16 @@ class Deck:
         drawn_card = self.cards[0]
         self.cards.pop(0)
         return drawn_card
+
+    def draw_x(self, n:int=5) -> list[Card]:
+        drawn_cards = []
+        for i in range(n):
+            drawn_cards.append(self.draw_card())
+        return drawn_cards
+
+class Player:
+    def __init__(self, name:str="John Doe") -> None:
+        self.name = name
+        self.hand = []
+
+print(Card().deal())
