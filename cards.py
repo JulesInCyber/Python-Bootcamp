@@ -1,5 +1,22 @@
 import random
 
+card_values = {
+        "2": 2,
+        "3": 3, 
+        "4": 4, 
+        "5": 5, 
+        "6": 6, 
+        "7": 7, 
+        "8": 8, 
+        "9": 9, 
+        "10": 10, 
+        "J": 11, 
+        "Q": 12, 
+        "K": 13, 
+        "A": 14
+    }
+
+
 class Card:
     suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
     values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
@@ -16,7 +33,7 @@ class Card:
         return cls(random.choice(cls.values), random.choice(cls.suits))
     
     def get_value(self):
-        pass
+        return card_values[self.values]
     
 class Deck:
     def __init__(self) -> None:
@@ -47,4 +64,26 @@ class Player:
         self.name = name
         self.hand = []
 
-print(Card().deal())
+def main():
+    p1 = Player("Julian")
+    p2 = Player("Not-Julian")
+    d1 = Deck()
+    d1.shuffle()
+    c1 = d1.draw_card()
+    c2 = d1.draw_card()
+    p1.hand.append(c1)
+    p2.hand.append(c2)
+
+    print(f"{p1.name} draws: {c1}")
+    print(f"{p2.name} draws: {c2}")
+
+    if c1.get_value() > c2.get_value():
+        print(f"{p1.name} wins!")
+    elif c1.get_value() < c2.get_value():
+        print(f"{p2.name} wins!")
+    else:
+        print("Draw!")
+
+
+if __name__ == "__main__":
+    main()
