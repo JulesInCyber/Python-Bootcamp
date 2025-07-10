@@ -22,13 +22,13 @@ class Deck:
             for suit in Card.suits:
                 self.cards.append(Card(value, suit))
 
-    def __str__(self):
+    def __str__(self) -> str:
         return "\n".join(str(card) for card in self.cards)
     
     def shuffle(self) -> None:
         random.shuffle(self.cards)
 
-    def draw_card(self):
+    def draw_card(self) -> None:
         drawn_card = self.cards[0]
         self.cards.pop(0)
         return drawn_card
