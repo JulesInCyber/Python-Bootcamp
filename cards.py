@@ -27,3 +27,8 @@ class Deck:
     
     def shuffle(self) -> None:
         random.shuffle(self.cards)
+
+    def draw_card(self):
+        drawn_card = self.cards[0]
+        self.cards.pop(0)
+        return drawn_card
