@@ -64,7 +64,7 @@ class Player:
         self.name = name
         self.hand = []
 
-def main():
+def highCard():
     p1 = Player("Julian")
     p2 = Player("Not-Julian")
     d1 = Deck()
@@ -86,4 +86,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    highCard()
