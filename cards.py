@@ -64,6 +64,9 @@ class Player:
         self.name = name
         self.hand = []
 
+    def show_hand(self) ->str:
+        return "\n".join(str(card) for card in self.hand)
+
 def highCard():
     p1 = Player("Julian")
     p2 = Player("Not-Julian")
@@ -74,7 +77,7 @@ def highCard():
     p1.hand.append(c1)
     p2.hand.append(c2)
 
-    print(f"{p1.name} draws: {c1}")
+    print(f"{p1.name} draws: " + p1.show_hand())
     print(f"{p2.name} draws: {c2}")
 
     if c1.get_value() > c2.get_value():
