@@ -65,8 +65,8 @@ if __name__ == "__main__":
     g1 = create_grid(50,30)
     spawn_cell(f_pent, g1)
 
-    for i in range(100):
+    for i in range(1000):
         print(f"\nGeneration {i}")
         print_grid(g1)
         g1 = next_gen(g1)
-        time.sleep(1)
+        time.sleep(.75)
