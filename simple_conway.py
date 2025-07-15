@@ -1,7 +1,7 @@
 import time
 
 def create_grid(x, y):
-    return [['.' for i in range(10)] for j in range(10)]
+    return [['.' for i in range(x)] for j in range(y)]
 
 def print_grid(grid):
     for row in grid:
@@ -45,16 +45,27 @@ def next_gen(current_grid):
                 # print(f"Next Gen of {x},{y}: Dead") 
     return new_grid
 
+def f_pentomino(x,y):
+    
+    form = [
+        (x, y+1),
+        (x, y+2),
+        (x+1, y),
+        (x+1, y+1),
+        (x+2, y+1)
+    ]
+    return form
 if __name__ == "__main__":
 
     # Oscillating Forms
     blinker = [(1, 1), (1, 2), (1, 3)]
     clock = [(1, 1),(1, 2),(0, 3), (2, 3), (2,4),(3,2)]
+    f_pent = f_pentomino(20,20)
     
-    g1 = create_grid(10,10)
-    spawn_cell(clock, g1)
+    g1 = create_grid(50,30)
+    spawn_cell(f_pent, g1)
 
-    for i in range(10):
+    for i in range(100):
         print(f"\nGeneration {i}")
         print_grid(g1)
         g1 = next_gen(g1)
