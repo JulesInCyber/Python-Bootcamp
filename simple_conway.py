@@ -47,9 +47,12 @@ def next_gen(current_grid):
 
 if __name__ == "__main__":
 
-    cells = [(1, 1), (1, 2), (1, 3)]
+    # Oscillating Forms
+    blinker = [(1, 1), (1, 2), (1, 3)]
+    clock = [(1, 1),(1, 2),(0, 3), (2, 3), (2,4),(3,2)]
+    
     g1 = create_grid(10,10)
-    spawn_cell(cells, g1)
+    spawn_cell(clock, g1)
 
     for i in range(10):
         print(f"\nGeneration {i}")
